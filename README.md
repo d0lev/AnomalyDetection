@@ -3,6 +3,9 @@
 
 
 
+<p align="center" width="90%">
+    <img width="80%" src="https://s4.gifyu.com/images/web-gif.gif">
+</p>
 In this dataset, there are attacks that you will need to detect. This data is network data from physical
 hosts. Can you find which hosts are anomalous/ outliers?
 
