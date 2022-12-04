@@ -5,8 +5,9 @@ import joblib
 import numpy as np
 from PIL import Image
 
-IsolationForest = open("model\classifier.pkl", "rb")
+IsolationForest = open("classifier.pkl", "rb")
 classifier = joblib.load(IsolationForest)
+print(classifier)
 
 
 def predict_anomaly(data):
@@ -27,11 +28,16 @@ if __name__ == "__main__":
       """
       st.markdown(html_temp, unsafe_allow_html=True)
       
-      features = [1]  # put dummy variable for the record id feature
+      features = []
 
+      record_id_header = """ <h1 style = "font-size: 15px; font-family:JetBrainsMono; margin-bottom:-50px" >identifier for each connection record</h1> """
       duration_header = """ <h1 style = "font-size: 15px; font-family:JetBrainsMono; margin-bottom:-50px" >number of seconds (rounded) of the connection</h1> """
       source_bytes_header = """ <h1 style = "font-size: 15px; font-family:JetBrainsMono; margin-bottom:-50px" >number of data bytes transferred from the source to the destination</h1> """
       destination_bytes_header = """ <h1 style = "font-size: 15px; font-family:JetBrainsMono; margin-bottom:-50px" >number of data bytes transferred from the destination to the source</h1> """
+
+      st.markdown(record_id_header,unsafe_allow_html = True)
+      record_id = st.number_input(label = "    ",value = 0)
+      features.append(record_id)
 
       st.markdown(duration_header, unsafe_allow_html=True)
       duration = st.number_input(label="")
