@@ -5,6 +5,8 @@ import joblib
 import numpy as np
 from PIL import Image
 
+## run docker command : docker run -p 8501:8501 streamlitapp:latest
+
 IsolationForest = open("classifier.pkl", "rb")
 classifier = joblib.load(IsolationForest)
 print(classifier)
